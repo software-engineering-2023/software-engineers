@@ -191,8 +191,25 @@
           </div>
         </nav>
         <!-- End Navbar -->
-        
-    
+        <div>
+        <h2>Create Client Account</h2>
+
+  <form onsubmit="checkForm(event)">
+    <label for="fullName">Full Name:</label>
+    <input type="text" id="fullName" name="fullName" required>
+
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="email" required>
+
+    <label for="password">Password:</label>
+    <input type="password" id="password" name="password" required>
+
+    <label for="confirmPassword">Confirm Password:</label>
+    <input type="password" id="confirmPassword" name="confirmPassword" required>
+
+    <input type="submit" value="Create Account">
+  </form>
+        </div>
     
     
     
@@ -274,6 +291,31 @@
         </div>
       </div>
       <!--   Core JS Files   -->
+
+
+      <script>
+        function checkForm(event) {
+          event.preventDefault();
+    
+          var fullName = document.getElementById("fullName").value;
+          var email = document.getElementById("email").value;
+          var password = document.getElementById("password").value;
+          var confirmPassword = document.getElementById("confirmPassword").value;
+    
+          if (fullName === '' || email === '' || password === '' || confirmPassword === '') {
+            alert("Please fill in all the fields.");
+          } else if (password !== confirmPassword) {
+            alert("Passwords do not match. Please re-enter your password.");
+          } else {
+            alert("Client account created successfully!\nFull Name: " + fullName + "\nEmail: " + email);
+            // You can proceed with further processing or display a confirmation message
+          }
+        }
+      </script>
+
+
+
+
       <script src="../assets/js/core/popper.min.js"></script>
       <script src="../assets/js/core/bootstrap.min.js"></script>
       <script src="../assets/js/plugins/perfect-scrollbar.min.js"></script>

@@ -91,13 +91,8 @@
             <span class="nav-link-text ms-1">Add Client</span>
           </a>
         </li>
-       
-       </ul>
-       </div>
-      
-      
-     
-      
+        
+    </div>
     
   </aside>
   <main class="main-content position-relative max-height-vh-100 h-100 border-radius-lg ">
@@ -107,14 +102,22 @@
         <nav aria-label="breadcrumb">
           <ol class="breadcrumb bg-transparent mb-0 pb-0 pt-1 px-0 me-sm-6 me-5">
             <li class="breadcrumb-item text-sm"><a class="opacity-5 text-dark" href="javascript:;">Pages</a></li>
-            <li class="breadcrumb-item text-sm text-dark active" aria-current="page">Add Employer</li>
+            <li class="breadcrumb-item text-sm text-dark active" aria-current="page">Add employer</li>
           </ol>
           <h6 class="font-weight-bolder mb-0">Add Employer</h6>
         </nav>
         
-         
-             
-   
+          </div>
+          
+            <li class="nav-item px-3 d-flex align-items-center">
+              <a href="javascript:;" class="nav-link text-body p-0">
+                <i class="fa fa-cog fixed-plugin-button-nav cursor-pointer"></i>
+              </a>
+            </li>
+            <li class="nav-item dropdown pe-2 d-flex align-items-center">
+              <a href="javascript:;" class="nav-link text-body p-0" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+                <i class="fa fa-bell cursor-pointer"></i>
+              </a>
               <ul class="dropdown-menu  dropdown-menu-end  px-2 py-3 me-sm-n4" aria-labelledby="dropdownMenuButton">
                 <li class="mb-2">
                   <a class="dropdown-item border-radius-md" href="javascript:;">
@@ -185,19 +188,30 @@
               </ul>
             </li>
             
-            </li>
           </ul>
         </div>
       </div>
     </nav>
     <!-- End Navbar -->
-    
+    <div>
+    <h2>Create Employer Account</h2>
 
+  <form onsubmit="checkForm(event)">
+    <label for="companyName">Company Name:</label>
+    <input type="text" id="companyName" name="companyName" required>
 
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="email" required>
 
+    <label for="password">Password:</label>
+    <input type="password" id="password" name="password" required>
 
+    <label for="confirmPassword">Confirm Password:</label>
+    <input type="password" id="confirmPassword" name="confirmPassword" required>
 
-
+    <input type="submit" value="Create Account">
+  </form>
+    </div>
   </main>
   <div class="fixed-plugin">
     <a class="fixed-plugin-button text-dark position-fixed px-3 py-2">
@@ -274,6 +288,29 @@
     </div>
   </div>
   <!--   Core JS Files   -->
+
+  <script>
+    function checkForm(event) {
+      event.preventDefault();
+
+      var companyName = document.getElementById("companyName").value;
+      var email = document.getElementById("email").value;
+      var password = document.getElementById("password").value;
+      var confirmPassword = document.getElementById("confirmPassword").value;
+
+      if (companyName === '' || email === '' || password === '' || confirmPassword === '') {
+        alert("Please fill in all the fields.");
+      } else if (password !== confirmPassword) {
+        alert("Passwords do not match. Please re-enter your password.");
+      } else {
+        alert("Employer account created successfully!\nCompany Name: " + companyName + "\nEmail: " + email);
+        // You can proceed with further processing or display a confirmation message
+      }
+    }
+  </script>
+
+
+
   <script src="../assets/js/core/popper.min.js"></script>
   <script src="../assets/js/core/bootstrap.min.js"></script>
   <script src="../assets/js/plugins/perfect-scrollbar.min.js"></script>
